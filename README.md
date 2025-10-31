@@ -20,6 +20,6 @@ This project analyzes Steam game data to discover how price, genre, release date
 - Price  
 - Review Counts and Ratings
 
-- ## Data Collection Plan
+## Data Collection Plan
 I plan to use publicly available game data from Kaggle and prepare it for analysis.  
 If needed, I may combine additional sources to make the dataset more comprehensive.
