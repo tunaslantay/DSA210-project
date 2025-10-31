@@ -3,7 +3,7 @@
 This project explores which factors contribute to the success of video games on Steam, using data analysis and visualization.
 ## Project Overview
 Video games are one of the largest entertainment industries in the world, but what makes a game successful?  
-This project analyzes Steam game data to discover how factors like price, genre, and developer type influence game ratings and popularity.
+This project analyzes Steam game data to discover how price, genre, release dates and other factors effect game ratings and popularity.
 
 ##  Research Questions
 1. Which genres tend to have the highest ratings?
