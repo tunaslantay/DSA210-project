@@ -88,3 +88,6 @@ Contrary to the trends observed in the EDA, the predictive model assigned a feat
 While Hybrid games statistically trend higher in the Success Index, the Machine Learning analysis reveals that **Game Type is not a primary driver of success.**
 
 The observed success of Hybrid games is likely a result of confounding variables; Hybrid games in this dataset tend to have higher **Metacritic Scores** and more robust post-launch support (**DLC**). Therefore, development resources should be prioritized towards execution quality and content support rather than game mode inclusion. A high-quality Singleplayer game is predicted to be just as successful as a high-quality Hybrid title.
+
+## AI Disclosure
+AI tools were used to generate some of the comments and trivial code snippets. All core analysis and conclusions are my own work.
