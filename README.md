@@ -30,16 +30,24 @@ $$
 * **Log Owners:** Logarithmic transformation of estimated owners (multiplier: 30x reviews) to handle extreme data skew.
 
 ## Technologies Used
-
 * **Python 3.14**
-* **Pandas & NumPy:** Data manipulation and cleaning.
-* **Matplotlib & Seaborn:** Visualization (Boxplots, Bar charts, Heatmaps).
-* **SciPy:** Statistical testing (Kruskal-Wallis, ANOVA).
+* **Pandas & NumPy:** Data manipulation and feature engineering.
+* **Scikit-Learn:** Decision Trees, Regressors, and Feature Importance analysis.
+* **Matplotlib & Seaborn:** Statistical visualization and correlation plotting.
+* **SciPy:** Statistical hypothesis testing (ANOVA, Kruskal-Wallis).
 
 ## Project Structure
 
-* `EDA.ipynb`: The main Jupyter Notebook containing data cleaning, feature engineering, and statistical analysis.
-* `games_march2025_cleaned.csv`: The source dataset.
+* **`EDA.ipynb`** (Exploratory Data Analysis)
+  * Handles data loading, cleaning, and the categorization of games into Singleplayer, Multiplayer, and Hybrid.
+  * Engineers the custom `Success Index` metric.
+  * Performs statistical testing (ANOVA) to identify significant performance differences between game categories.
+* **`ML.ipynb`** (Machine Learning Analysis)
+  * Loads the processed dataset and performs feature selection to remove target leakage.
+  * Implements predictive modeling pipelines to isolate causal factors.
+  * Analyzes feature importance to determine which variables actually drive the Success Index.
+* **`data/`**
+  * Contains the source CSV files and the processed datasets generated during the analysis.
 
 ## Key Findings
 
@@ -67,11 +75,16 @@ To scientifically validate differences between game types, we established a form
 * **Alternative Hypothesis ($H_1$):** At least one game type has a significantly different mean Success Index compared to the others.
 
 
+### 4. Machine Learning Analysis
+To isolate the causal factors of success, a ML model was trained to predict the Success Index using features such as Game Type, Price, DLC Count, and Metacritic Score.
 
-## Visualizations
+**Crucial Observation:**
+Contrary to the trends observed in the EDA, the predictive model assigned a feature importance of nearly **0.0** to `game_type`. This indicates that the game category itself (Singleplayer vs. Hybrid) has negligible predictive power when other variables are controlled.
 
-The notebook generates several key insights:
 
-* **Boxplots:** Comparing Review Positivity across categories.
-* **Bar Charts:** Comparing Average Log Owners vs. Raw Owners.
-* **Correlation Heatmap:** Analyzing the relationship between Metacritic scores, User Scores, and Estimated Owners.
+
+## Conclusion
+
+While Hybrid games statistically trend higher in the Success Index, the Machine Learning analysis reveals that **Game Type is not a primary driver of success.**
+
+The observed success of Hybrid games is likely a result of confounding variables; Hybrid games in this dataset tend to have higher **Metacritic Scores** and more robust post-launch support (**DLC**). Therefore, development resources should be prioritized towards execution quality and content support rather than game mode inclusion. A high-quality Singleplayer game is predicted to be just as successful as a high-quality Hybrid title.
